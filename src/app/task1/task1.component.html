@@ -1,0 +1,81 @@
+
+<div class="form-group">
+<form [formGroup]="myForm" (ngSubmit)="onSubmitForm()" >
+    <h2>Registration Form:</h2>
+    <div class="form-group">
+        <label for="firstName">Enter Your First Name:</label>  
+        <input type="text" name="fname" placeholder="Enter Your First Name" formControlName="fname" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Enter Your Last Name:</label>  
+        <input type="text" name="lname" placeholder="Enter Your Last Name" formControlName="lname" class="form-control">
+         
+    </div>
+
+    <div class="form-group">
+        <label for="age">Enter Your Age:</label>  
+        <input type="text" name="age" placeholder = "Enter Your Age" formControlName="age" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="course" class="labelname">Select Course:</label>  
+        <select name="course" class="form-control" placeholder = "Select Course" formControlName="course" class="form-control">
+            <option *ngFor="let course of courses">{{course}}</option>
+        </select> 
+    </div>
+
+    <div class="form-group">
+        <div>
+          <label for="gender">Gender:</label>
+          <input id="male" type="radio" value="Male" name="gender" formControlName="gender">
+          <label for="male">Male</label>&nbsp;
+          <input id="female" type="radio" value="Female" name="gender" formControlName="gender">
+          <label for="female">Female</label>
+       </div>
+    </div>
+
+    <div class="form-group">
+        <label for="qualification">Enter Your Qualification:</label>  
+        <input type="text" name="qualification" placeholder = "Enter Your qualification" formControlName="qualification" class="form-control">
+    </div><br>
+
+    <div class="form-group">
+        <button type= "submit" class="btn btn-info">Submit</button>
+    </div>
+</form>
+</div>
+
+<br>
+
+<div class="table" *ngIf="showData">
+    <table class="table table-success table-striped">
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Age</td>
+            <td>Course</td>
+            <td>Gender</td>
+            <td>Qualification</td>
+            <td colspan="2">Modifications</td>
+            
+            
+        </tr>
+
+        <tr *ngFor="let i of student">
+            <td>{{i.fname}}</td>
+            <td>{{i.lname}}</td>
+            <td [ngStyle]="'i.age>18'? {'color':'red'} : {'color':'blue'}">{{i.age}}</td>
+            <td>{{i.course}}</td>
+            <td>{{i.gender}}</td>
+            <td>{{i.qualification}}</td>
+
+            <td><button (click)="onDelete(i)" class="btn btn-danger">Delete</button></td>
+            <td><button (click)="onEdit(i)" class="btn btn-primary">Edit</button></td>
+            
+        </tr>
+
+    </table>
+
+</div>
+
