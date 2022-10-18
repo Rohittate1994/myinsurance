@@ -21,6 +21,7 @@ import { RxjsOperatorsComponent } from './rxjs-operators/rxjs-operators.componen
 import { ServiceData2Component } from './service-data2/service-data2.component';
 import { PromiseComponent } from './promise/promise.component';
 import { ServiceData1Component } from './service-data1/service-data1.component';
+import { TestcompComponent } from './testcomp/testcomp.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ServiceData1Component } from './service-data1/service-data1.component';
     ServiceData2Component,
     PromiseComponent,
     ServiceData1Component,
+    TestcompComponent,
     
   ],
   imports: [
